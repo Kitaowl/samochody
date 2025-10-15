@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+
+        #new .test2 {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="original0">
+        <div class="test">INDEX 0: BMW</div>
+        <div class="test">INDEX 1: Audi</div>
+        <div class="test">INDEX 2: Mercedes</div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+    </div>
+    <div id="original1">
+        <div class="test">INDEX 0: BMW</div>
+        <div class="test">INDEX 1: Audi</div>
+        <div class="test">INDEX 2: Mercedes</div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+    </div>
+    <div id="original2">
+        <div class="test">INDEX 0: BMW</div>
+        <div class="test">INDEX 1: Audi</div>
+        <div class="test">INDEX 2: Mercedes</div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+    </div>
+</body>
+<script>
+
+    let newRef = document.querySelectorAll("#new .test2");
+
+    let i = 0; // i - iterator
+    while(newRef.length >i){
+        if( i % 2 === 0){
+            newRef[i].remove(); // remove nie jest właściwościa, tylko funkcją // z tabeli usunie się tylko 0 // [] sybmol tabeli
+        }
+        i++;
+    }
+
+    NodeList
+
+    // starsza metoda
+    let oldRef = document.getElementsByClassName("test1");
+
+    console.log("Tablica Cała: ",oldRef);
+    i = 0;
+    while(newRef.length >i){
+        if( i % 2 === 0){
+            newRef[i].remove(); // remove nie jest właściwościa, tylko funkcją // z tabeli usunie się tylko 0 // [] sybmol tabeli
+        }
+        i++;
+        console.log("Tablica po Iteracji: ",oldRef);
+
+    }
+
+    function showValuesRefNode(ref){
+        let result = [];
+        for(let i=0;i<ref.length;i++){
+            ref[i] = ref[i].innerText;
+        }
+        return ref;
+    }
+
+    HTMLCollection // żywa referencja do czego, co się dzieje na stronie
+
+
+    // DOM - document
+    // #textNode
+</script>
+</html>
+
