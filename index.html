@@ -4,84 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        
-
-        #new .test2 {
-            font-size: 40px;
-        }
-    </style>
 </head>
 <body>
-    <div id="original0">
-        <div class="test">INDEX 0: BMW</div>
-        <div class="test">INDEX 1: Audi</div>
-        <div class="test">INDEX 2: Mercedes</div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-    </div>
-    <div id="original1">
-        <div class="test">INDEX 0: BMW</div>
-        <div class="test">INDEX 1: Audi</div>
-        <div class="test">INDEX 2: Mercedes</div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-    </div>
-    <div id="original2">
-        <div class="test">INDEX 0: BMW</div>
-        <div class="test">INDEX 1: Audi</div>
-        <div class="test">INDEX 2: Mercedes</div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-    </div>
+    <script>
+        // Inicjalizacja oryginalnej tablicy do posortowania
+        const tablica = [435,54,43,324,234,232,3,43,34];
+        
+        // Tablica pomocnicza do śledzenia przejść przez algorytm
+        let tempTab = [];
+        
+        // Tablica na wynik (chociaż w tym algorytmie sortujemy w miejscu)
+        let resultTab = [];
+        
+        // Flaga określająca czy kontynuować sortowanie
+        let isEnd = true;
+        
+        // Indeks aktualnie przetwarzanego elementu
+        let i = 0;
+        
+        // Główna pętla sortująca - wykonuje się dopóki isEnd = true
+        while(isEnd){
+            // Porównanie sąsiadujących elementów
+            if(tablica[i] > tablica[i+1]){
+                // Zamiana miejscami gdy element jest większy od następnego
+                let tempEl = tablica[i];
+                tablica[i] = tablica[i+1];  // Poprawiona linia - było tablica[1]
+                tablica[i+1] = tempEl;
+            }
+            
+            // Sprawdzenie czy doszliśmy do końca tablicy
+            if(i === tablica.length - 2){
+                // Sprawdzenie czy w ostatnim przejściu nie było żadnych zamian
+                if(tempTab.length === tablica.length - 1){
+                    isEnd = false;  // Jeśli tak, kończymy sortowanie
+                }
+                tempTab = [];  // Reset tablicy pomocniczej dla nowego przejścia
+                i = -1;        // Reset indeksu do początku tablicy
+            }
+            
+            // Zaznaczenie że przeszliśmy przez tę pozycję
+            tempTab.push(true);
+            
+            // Przejście do następnego elementu
+            i++;
+
+            // remove nie jest właściwościa, tylko funkcją // z tabeli usunie się tylko 0 // [] sybmol tabeli
+
+            //HTMLCollection -> żywa referencja do czego, co się dzieje na stronie
+        }  
+
+        // Wyświetlenie posortowanej tablicy
+        console.log("Posortowana tablica:", tablica);
+    </script>
 </body>
-<script>
-
-    let newRef = document.querySelectorAll("#new .test2");
-
-    let i = 0; // i - iterator
-    while(newRef.length >i){
-        if( i % 2 === 0){
-            newRef[i].remove(); // remove nie jest właściwościa, tylko funkcją // z tabeli usunie się tylko 0 // [] sybmol tabeli
-        }
-        i++;
-    }
-
-    NodeList
-
-    // starsza metoda
-    let oldRef = document.getElementsByClassName("test1");
-
-    console.log("Tablica Cała: ",oldRef);
-    i = 0;
-    while(newRef.length >i){
-        if( i % 2 === 0){
-            newRef[i].remove(); // remove nie jest właściwościa, tylko funkcją // z tabeli usunie się tylko 0 // [] sybmol tabeli
-        }
-        i++;
-        console.log("Tablica po Iteracji: ",oldRef);
-
-    }
-
-    function showValuesRefNode(ref){
-        let result = [];
-        for(let i=0;i<ref.length;i++){
-            ref[i] = ref[i].innerText;
-        }
-        return ref;
-    }
-
-    HTMLCollection // żywa referencja do czego, co się dzieje na stronie
-
-
-    // DOM - document
-    // #textNode
-</script>
 </html>
-
